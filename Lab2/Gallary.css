@@ -1,0 +1,33 @@
+.gallery-img {
+    filter: brightness(80%) contrast(90%);
+    transition: 0.4s;
+}
+
+.gallery-img:hover {
+    filter: brightness(100%) contrast(110%);
+}
+.gallery-img {
+    transition: 0.4s;
+}
+
+.gallery-img:hover {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 0.8);
+}
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.gallery-img {
+    display: block;
+    margin: auto;
+}
+.gallery-img {
+    width: 100%;
+    height: 200px;        /* ปรับความสูงได้ตามต้องการ */
+    object-fit: cover;   /* ครอบภาพให้พอดี ไม่บิด */
+    border-radius: 15px;
+    display: block;
+    margin: auto;
+    transition: 0.4s ease;
+}
