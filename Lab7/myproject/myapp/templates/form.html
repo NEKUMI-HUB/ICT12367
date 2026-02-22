@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Anime Style Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#ffeef8; --bg2:#e8f7ff; --accent:#ff6fb5; --accent2:#7ad9ff;
+    --panel:#fff; --muted:#7a5a6a;
+  }
+  html,body{height:100%;margin:0;font-family:'Noto Sans JP','Baloo 2',system-ui;background:
+    radial-gradient(circle at 10% 10%, rgba(255,111,181,0.08), transparent 8%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));display:flex;align-items:center;justify-content:center;padding:32px;}
+
+  /* floating sparkles */
+  .sparkle{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
+  .star{position:absolute;width:14px;height:14px;filter:drop-shadow(0 6px 10px rgba(122,90,106,0.12));opacity:.9;
+    transform-origin:center;animation:float 8s linear infinite}
+  .star svg{width:100%;height:100%}
+  .s1{left:8%;top:12%;animation-duration:9s;transform:scale(.9)}
+  .s2{left:82%;top:22%;animation-duration:11s;transform:scale(.7)}
+  .s3{left:40%;top:78%;animation-duration:10s;transform:scale(.8)}
+  @keyframes float{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-18px) rotate(18deg)}100%{transform:translateY(0) rotate(0)}}
+
+  /* main card */
+  .card{width:100%;max-width:920px;background:linear-gradient(180deg,var(--panel),#fffafa);border-radius:20px;
+    padding:22px;display:flex;gap:20px;box-shadow:0 18px 50px rgba(112,72,108,0.12);border:1px solid rgba(255,111,181,0.08)}
+  .left{flex:0 0 220px;padding:14px;text-align:center;position:relative}
+  .chibi{width:160px;height:160px;margin:6px auto 10px;filter:drop-shadow(0 10px 18px rgba(122,90,106,0.12))}
+  .title{font-size:20px;color:#52243a;margin:8px 0 4px;font-weight:700}
+  .subtitle{color:var(--muted);font-size:13px;margin:0}
+
+  form{flex:1;display:grid;gap:12px;align-content:start}
+  label{display:flex;flex-direction:column;gap:8px;font-weight:700;color:#5a2f40;font-size:14px}
+  .hint{font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
+
+  input,textarea,select{
+    padding:12px 14px;border-radius:14px;border:2px solid rgba(125,85,105,0.08);
+    background:linear-gradient(180deg,#fff,#fff9fb);font-size:14px;color:#3b2129;outline:none;
+    box-shadow:inset 0 2px 0 rgba(255,255,255,0.6);transition:transform .12s,box-shadow .12s,border-color .12s;
+  }
+  input:focus,textarea:focus,select:focus{transform:translateY(-3px);border-color:var(--accent2);box-shadow:0 14px 32px rgba(122,90,106,0.08)}
+  textarea{min-height:120px;resize:vertical}
+
+  .row{display:flex;gap:12px}
+  .row > *{flex:1}
+
+  /* anime-ish buttons */
+  .actions{display:flex;gap:12px;align-items:center;margin-top:6px}
+  .btn{
+    background:linear-gradient(180deg,var(--accent),#ff9bd8);border:none;color:white;padding:10px 18px;border-radius:14px;
+    font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:.6px;box-shadow:0 12px 30px rgba(255,111,181,0.18);
+    transition:transform .12s,box-shadow .12s;
+  }
+  .btn:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(122,90,106,0.14)}
+  .ghost{background:transparent;border:2px dashed rgba(122,90,106,0.08);color:#5a2f40;padding:9px 14px;border-radius:12px}
+
+  /* speech bubble accent */
+  .bubble{position:absolute;right:8px;top:18px;background:linear-gradient(180deg,#fff9ff,#fff);padding:8px 12px;border-radius:18px;border:1px solid rgba(125,85,105,0.06);
+    box-shadow:0 6px 18px rgba(122,90,106,0.06);font-size:13px;color:#52243a;font-weight:700}
+
+  /* cute corner badge */
+  .badge{position:absolute;left:14px;bottom:14px;background:var(--accent2);color:#0b2a3b;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;
+    box-shadow:0 8px 20px rgba(122,90,106,0.08);transform:rotate(-8deg)}
+
+  /* subtle halftone strip */
+  .halftone{position:absolute;right:-40px;bottom:-30px;opacity:0.12;filter:blur(1px)}
+
+  @media (max-width:760px){.card{flex-direction:column}.left{order:0;width:auto}}
+</style>
+</head>
+<body>
+  <div class="sparkle" aria-hidden="true">
+    <div class="star s1"><svg viewBox="0 0 24 24"><path fill="#ffd6ee" d="M12 2l2.6 5.3L20 10l-5 3.6L16 20l-4-2.6L8 20l1-6.4L4 10l5.4-2.7z"/></svg></div>
+    <div class="star s2"><svg viewBox="0 0 24 24"><path fill="#c7f7ff" d="M12 3l1.8 3.7L18 8l-3.3 2.4L15.6 15 12 12.8 8.4 15l.9-4.6L6 8l4.2-1.3L12 3z"/></svg></div>
+    <div class="star s3"><svg viewBox="0 0 24 24"><path fill="#fff2c8" d="M12 2l1.5 3.1L17 6l-2.5 1.8L15 11l-3-1.9L9 11l.5-3.2L7 6l3.5-.9L12 2z"/></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="left">
+      <!-- chibi SVG (simple) -->
+      <svg class="chibi" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="chibi character">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffd6ee"/><stop offset="1" stop-color="#ff9bd8"/></linearGradient></defs>
+        <circle cx="60" cy="60" r="56" fill="url(#g)"/>
+        <path d="M36 70c6 10 40 10 48 0" fill="none" stroke="#3b2129" stroke-linecap="round" stroke-width="3"/>
+        <circle cx="44" cy="54" r="6" fill="#3b2129"/><circle cx="76" cy="54" r="6" fill="#3b2129"/>
+        <path d="M52 40c3-6 16-8 22 0" stroke="#3b2129" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M18 46c10-4 24-12 84-2" stroke="#ffb3db" stroke-opacity=".2" fill="none"/>
+      </svg>
+
+      <div class="title">Netikorn Khamsingha</div>
+      <p class="subtitle">Send a message with a cute UI!</p>
+
+      <div class="bubble">Hello! ✨</div>
+      <div class="badge">NEW</div>
+
+      <svg class="halftone" width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><pattern id="p1" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#6b3a4a"/></pattern></defs>
+        <rect width="220" height="220" fill="url(#p1)"/>
+      </svg>
+    </div>
+
+    <form>
+      <label>Name <span class="hint">e.g. Tajibana Koyuki</span>
+        <input type="text" name="name" placeholder="Enter your name" autocomplete="name">
+      </label>
+
+      <div class="row">
+        <label>Email
+          <input type="email" name="email" placeholder="example@mail.com" autocomplete="email">
+        </label>
+        <label>Position
+          <select name="topic">
+            <option>Manager</option><option>IT Support</option><option>QA</option>
+          </select>
+        </label>
+      </div>
+
+      <label>Message
+        <textarea name="message" placeholder="Write your message..."></textarea>
+      </label>
+
+      <div class="actions">
+        <button type="submit" class="btn">Send</button>
+        <button type="reset" class="ghost">Reset</button>
+        <div style="margin-left:auto;color:var(--muted);font-size:12px">Personal data is protected</div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
