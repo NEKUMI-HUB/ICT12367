@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>SQL Assignment 5</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    margin:40px;
+}
+h1{
+    text-align:center;
+}
+.section{
+    background:white;
+    padding:25px;
+    margin-bottom:40px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+table{
+    border-collapse:collapse;
+    width:100%;
+    margin-top:10px;
+}
+th, td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:left;
+}
+th{
+    background:#eee;
+}
+pre{
+    background:#111;
+    color:#00ff88;
+    padding:12px;
+    border-radius:6px;
+    overflow:auto;
+}
+</style>
+</head>
+
+<body>
+
+<h1>SQL Assignment 5</h1>
+
+<div class="section">
+<h2>Table: city</h2>
+<b>Columns:</b>
+<table>
+<tr><th>Column</th><th>Type</th></tr>
+<tr><td>ID</td><td>int AI PK</td></tr>
+<tr><td>Name</td><td>char(35)</td></tr>
+<tr><td>CountryCode</td><td>char(3)</td></tr>
+<tr><td>District</td><td>char(20)</td></tr>
+<tr><td>Population</td><td>int</td></tr>
+</table>
+
+<h3>Example Data</h3>
+<table>
+<tr><th>ID</th><th>Name</th><th>CountryCode</th><th>District</th><th>Population</th></tr>
+<tr><td>1</td><td>Kabul</td><td>AFG</td><td>Kabol</td><td>1780000</td></tr>
+<tr><td>2</td><td>Qandahar</td><td>AFG</td><td>Qandahar</td><td>237500</td></tr>
+<tr><td>3</td><td>Herat</td><td>AFG</td><td>Herat</td><td>186800</td></tr>
+</table>
+</div>
+
+
+<div class="section">
+<h2>Table: country</h2>
+<b>Columns:</b>
+<table>
+<tr><th>Column</th><th>Type</th></tr>
+<tr><td>Code</td><td>char(3) PK</td></tr>
+<tr><td>Name</td><td>char(52)</td></tr>
+<tr><td>Continent</td><td>enum</td></tr>
+<tr><td>Region</td><td>char(26)</td></tr>
+<tr><td>SurfaceArea</td><td>decimal</td></tr>
+<tr><td>IndepYear</td><td>smallint</td></tr>
+<tr><td>Population</td><td>int</td></tr>
+<tr><td>LifeExpectancy</td><td>decimal</td></tr>
+<tr><td>GNP</td><td>decimal</td></tr>
+<tr><td>GNPOld</td><td>decimal</td></tr>
+</table>
+</div>
+
+
+<div class="section">
+<h2>Table: countrylanguage</h2>
+<b>Columns:</b>
+<table>
+<tr><th>Column</th><th>Type</th></tr>
+<tr><td>CountryCode</td><td>char(3) PK</td></tr>
+<tr><td>Language</td><td>char(30) PK</td></tr>
+<tr><td>IsOfficial</td><td>enum('T','F')</td></tr>
+<tr><td>Percentage</td><td>decimal(4,1)</td></tr>
+</table>
+</div>
+
+
+<div class="section">
+<h2>SQL Queries (Assignment)</h2>
+
+<h3>1</h3>
+<pre>SELECT * FROM city;</pre>
+
+<h3>2</h3>
+<pre>SELECT Name, District FROM city;</pre>
+
+<h3>3</h3>
+<pre>SELECT * FROM city
+WHERE CountryCode = 'THA';</pre>
+
+<h3>4</h3>
+<pre>SELECT * FROM city
+WHERE Population > 1000000;</pre>
+
+<h3>5</h3>
+<pre>SELECT * FROM city
+WHERE CountryCode = 'BEL'
+AND Population > 2000000;</pre>
+
+<h3>6</h3>
+<pre>SELECT Name, Continent FROM country;</pre>
+
+<h3>7</h3>
+<pre>SELECT * FROM country
+WHERE Continent = 'Asia';</pre>
+
+<h3>8</h3>
+<pre>SELECT Name FROM country
+WHERE Region = 'Southeast Asia'
+AND Population > 50000000;</pre>
+
+<h3>9</h3>
+<pre>SELECT Name FROM country
+WHERE LifeExpectancy > 80;</pre>
+
+<h3>10</h3>
+<pre>SELECT Name FROM country
+WHERE IndepYear IS NULL;</pre>
+
+<h3>11</h3>
+<pre>SELECT Name FROM country
+WHERE GNP > GNPOld;</pre>
+
+<h3>12</h3>
+<pre>SELECT Language FROM countrylanguage
+WHERE CountryCode = 'USA';</pre>
+
+<h3>13</h3>
+<pre>SELECT Language FROM countrylanguage
+WHERE IsOfficial = 'T';</pre>
+
+<h3>14</h3>
+<pre>SELECT Language FROM countrylanguage
+WHERE Percentage > 50;</pre>
+
+<h3>15</h3>
+<pre>SELECT Language FROM countrylanguage
+WHERE IsOfficial = 'F'
+AND Percentage > 30;</pre>
+
+</div>
+
+</body>
+</html>
