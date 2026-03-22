@@ -1,0 +1,166 @@
+{% extends "base.html"%}
+
+{% block title %}
+<title>หน้าแรก - ICT12367 SPU</title>
+    <style>
+        :root {
+            --sakura-pink: #ffb7c5;
+            --bright-yellow: #fffa65;
+            --sky-blue: #18dcff;
+            --japan-red: #ff4d4d;
+        }
+
+        body {
+            background-color: #fffaf0; /* Creamy white */
+            font-family: 'Zen Maru Gothic', 'Kanit', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(255, 183, 197, 0.8), rgba(255, 183, 197, 0.8)), 
+                        url('https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 10px solid var(--bright-yellow);
+        }
+
+        .section-title {
+            border-left: 8px solid var(--japan-red);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        /* Anime Cards */
+        .anime-card {
+            border: none;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            background: white;
+            height: 100%;
+        }
+
+        .anime-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .bg-hot { background-color: var(--japan-red); }
+        .bg-must-watch { background-color: var(--sky-blue); }
+        .bg-upcoming { background-color: #7d5fff; }
+
+        /* Map Section */
+        .map-container {
+            border: 10px solid white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .footer {
+            background-color: var(--sakura-pink);
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<h2 style="color: blueviolet;">ยินดีต้อนรับเข้าสู่ประวัติประชากร</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">รหัสประชากร</th>
+            <th scope="col">ชื่อประชากร</th>
+            <th scope="col">อายุ</th>
+            <th scope="col">แก้ไข</th>
+            <th scope="col">ลบ</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for person in all_persons %}
+        <tr>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+            <td><a href="#" class="btn btn-warning">แก้ไข</a></td>
+            <td><a href="#" class="btn btn-danger">ลบ</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <h3 class="section-title">อนิเมะมาแรง (Hot)</h3>
+            <div class="card anime-card">
+                <span class="card-tag bg-hot">HOT 🔥</span>
+                <img src="https://4kwallpapers.com/images/walls/thumbs_3t/23615.jpg" class="card-img-top" alt="Anime">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Demon Slayer</h5>
+                    <p class="card-text text-muted small">การต่อสู้สุดอลังการของหน่วยพิฆาตอสูร</p>
+                    <button class="btn btn-outline-danger w-100 rounded-pill">ดูตอนนี้</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h3 class="section-title">ไม่ควรพลาด (Must Watch)</h3>
+            <div class="card anime-card">
+                <span class="card-tag bg-must-watch">Must Watch ✨</span>
+                <img src="https://4kwallpapers.com/images/walls/thumbs_3t/24148.jpg" class="card-img-top" alt="Anime">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Jujutsu Kaisen</h5>
+                    <p class="card-text text-muted small">เรื่องราวไสยเวทย์ที่เข้มข้นที่สุดในยุค</p>
+                    <button class="btn btn-outline-info w-100 rounded-pill text-dark">ดูตอนนี้</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h3 class="section-title">น่าติดตาม (Upcoming)</h3>
+            <div class="card anime-card">
+                <span class="card-tag bg-upcoming">Upcoming 🕒</span>
+                <img src="https://4kwallpapers.com/images/walls/thumbs_3t/24000.jpg" class="card-img-top" alt="Anime">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Spy x Family</h5>
+                    <p class="card-text text-muted small">ครอบครัวปลอมๆ กับภารกิจลับสุดป่วน</p>
+                    <button class="btn btn-outline-primary w-100 rounded-pill">รอรับชม</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 pt-5">
+        <div class="col-12">
+            <h3 class="section-title">จุดกำเนิดความสนุก - ประเทศญี่ปุ่น (Japan Map) 🗾</h3>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13264639.31758652!2d131.06642730103856!3d35.43265057074213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34674e0fd77f192f%3A0xf54275141cbbdd2a!2z4pun4Lie4Li44LmI4LiZ!5e0!3m2!1sth!2sth!4v1709400000000!5m2!1sth!2sth" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}
