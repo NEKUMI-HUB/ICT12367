@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>เกี่ยวกับเรา - ICT12367 SPU</title>
+    <style>
+        :root {
+            --sakura: #ffb7c5;
+            --neon-blue: #00d2ff;
+            --matcha: #8eb69b;
+            --sun-red: #ff4757;
+        }
+        body {
+            background-color: #fffafb;
+            font-family: 'Zen Maru Gothic', 'Noto Sans Thai', sans-serif;
+        }
+        .navbar {
+            background-color: var(--sakura) !important;
+            border-bottom: 5px solid var(--sun-red);
+        }
+        .section-header {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: linear-gradient(120deg, var(--sakura), #fff);
+            border-radius: 50px;
+            color: #d63384;
+            font-weight: bold;
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            transition: 0.3s;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(255, 183, 197, 0.4);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .badge-anime { background-color: var(--sun-red); }
+        .badge-travel { background-color: var(--neon-blue); }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        
+        <div class="col">
+            <div class="card">
+                <img src="https://4kwallpapers.com/images/wallpapers/jujutsu-kaisen-season-3-2732x2732-25311.jpg" class="card-img-top" alt="JJK S3">
+                <div class="card-body">
+                    <span class="badge badge-anime mb-2">Anime 2026</span>
+                    <h5 class="card-title fw-bold">Jujutsu Kaisen Season 3</h5>
+                    <p class="card-text text-muted small">การกลับมาของบท "Culling Game" ที่แฟนๆ ทั่วโลกต่างรอคอยด้วยงานภาพจาก MAPPA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="https://4kwallpapers.com/images/walls/thumbs/15146.jpg" class="card-img-top" alt="Frieren S2">
+                <div class="card-body">
+                    <span class="badge badge-anime mb-2">Anime 2026</span>
+                    <h5 class="card-title fw-bold">Frieren Season 2</h5>
+                    <p class="card-text text-muted small">การเดินทางครั้งใหม่ของฟรีเรนสู่ดินแดนทางเหนือ พร้อมการเล่าเรื่องที่ตราตรึงใจ</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="https://4kwallpapers.com/images/walls/thumbs/23615.jpg" class="card-img-top" alt="Demon Slayer">
+                <div class="card-body">
+                    <span class="badge badge-anime mb-2">Anime 2026</span>
+                    <h5 class="card-title fw-bold">Infinity Castle Movie 2</h5>
+                    <p class="card-text text-muted small">ภาคต่อของไตรภาคภาพยนตร์ "ปราสาทไร้ขอบเขต" ที่ยิ่งใหญ่ที่สุดในประวัติศาสตร์</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <img src="https://4kwallpapers.com/images/wallpapers/oshi-no-ko-season-3-3840x2160-25266.jpg" class="card-img-top" alt="Oshi no Ko">
+                <div class="card-body">
+                    <span class="badge badge-anime mb-2">Anime 2026</span>
+                    <h5 class="card-title fw-bold">Oshi no Ko Season 3</h5>
+                    <p class="card-text text-muted small">เจาะลึกความลับของวงการบันเทิงและแผนการล้างแค้นที่เข้มข้นยิ่งกว่าเดิม</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card border-info">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=500" class="card-img-top" alt="Kyoto">
+                <div class="card-body">
+                    <span class="badge badge-travel mb-2">Travel 2026</span>
+                    <h5 class="card-title fw-bold text-info">Kyoto Trail 2026</h5>
+                    <p class="card-text text-muted small">เส้นทางเดินป่ารอบเมืองเกียวโต 80 กม. ที่กำลังได้รับความนิยมสูงสุดในปีนี้</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card border-info">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=500" class="card-img-top" alt="Ginza">
+                <div class="card-body">
+                    <span class="badge badge-travel mb-2">Travel 2026</span>
+                    <h5 class="card-title fw-bold text-info">LPC Japan Studio Ginza</h5>
+                    <p class="card-text text-muted small">แลนด์มาร์คใหม่ใจกลางกินซ่าที่รวมเวิร์คช็อปเขียนมังงะและคาเฟ่ญี่ปุ่นไว้ด้วยกัน</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card border-info">
+                <img src="https://hoshinoresorts.com/nara-prison-museum/wp-content/uploads/2026/01/hl_1_2.jpg" class="card-img-top" alt="Nara">
+                <div class="card-body">
+                    <span class="badge badge-travel mb-2">Travel 2026</span>
+                    <h5 class="card-title fw-bold text-info">Nara Prison Museum</h5>
+                    <p class="card-text text-muted small">เปลี่ยนเรือนจำเก่าแก่ยุคเมจิให้เป็นพิพิธภัณฑ์และโรงแรมสุดหรูที่เปิดตัวปี 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card border-info">
+                <img src="https://en.japantravel.com/photo/poi-35-220061/1200x630/osaka-universal-studio-japan-220061.jpg" class="card-img-top" alt="Osaka">
+                <div class="card-body">
+                    <span class="badge badge-travel mb-2">Travel 2026</span>
+                    <h5 class="card-title fw-bold text-info">Universal Studios Japan</h5>
+                    <p class="card-text text-muted small">เฉลิมฉลองครบรอบ 25 ปี USJ ด้วยอีเวนต์พิเศษและโซนใหม่ตลอดทั้งปี 2026</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
